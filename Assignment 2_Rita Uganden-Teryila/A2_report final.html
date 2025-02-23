@@ -18,12 +18,13 @@
 	</header>
 	<main>
 		<section>
-			<h2>Subtheme: [Speculation : Exploring Housing for the Rich ]</h2>
+			<h2>Subtheme:Speculation : Exploring Housing for the Rich</h2>
 
 			<h3>Overall Analysis Questions</h3>
+			<p> In this exploartory data analysis report, i explore the residency.csv data set provided to develop some hypothesis as i answer the following EDS questions </p>
 			<ol>
 				<li>How has home affordability changed over time (2000-2023)</li>
-				<li>How has affordability changed in different neighborhoods?</li>
+				<li>How has affordability changed in different neighborhoods? </li>
 				<li>How has house ownership changed over time?
 				</li>
 			</ol>
@@ -33,45 +34,55 @@
 			<h2>Discoveries & Insights</h2>
 
 			<figure>
-				<img src="Visualizations/Protype v. Investors.png" alt="" />
+				<img src="Assignment 2_Rita Uganden-Teryila/Visualizations/Property Types in Boston Ranked by Price of Sale.png" alt="" />
 				<figcaption>
 				Property Type vs Investor Type.
 				</figcaption>
 			</figure>
-				<ol>
-					<li>Commercial buildings are in the highest priced property types amongst all properties - and are chiefly invested by  institutional investors like government and mega corps
-					<li>RCD - which are a type of residential condominimum properties are the primary focus of non-institutional buyers. - all other property type owners are interested in this type of building. We see small, large and medium investors all have purchased RCD buildings.</li
-					<li>The Boston housing market is shared between institutional investors and this is followed non-investor buyers, with a notable presence of EXM properties (potentially tax-exempt or specialized buildings) owned by the government. More research is needed to understand the role of EXM building as the hold a significant market share by institutional investors </li>
-					<li>Institutional investors we can categprized as mega firms, house managers, private equity companies, the trend we observe is this investors are not interested in other building types like land and industry but you find them across any form of built properties. Resulting in sustained increase in prices - notably in 2008 and 2020 the prices of house dropped due to financial crises and the covid 19 virus respectively </li>
+				<p>to begin this exploration plot or property types vs the different investors to attempt to answer the first question - How has home affordability changed over time (2000-2023). The following are some of my findings</p>
+				<ul>
+					<li>Commercial buildings are in the highest priced property types amongst all properties - and are chiefly invested by institutional investors which i assume to government and mega corps. How can i understand the spread of different instituions that are investing in housing in Boston
+					<li> RCD - which are a type of residential condominium Property are the primary focus of non-investor buyers. - i also find that small, medium and large organizations are interested/ invested and all have purchased RCD buildings. This is also supported by the visualization presented in figure 2 which shows the different investor distribution</li
+					<li>A significant portion of properties are tagged "EXM" (potentially tax-exempt or specialized buildings  not enough clarifying information from the usecode sheet)- these are largely owned by the government. A followup question is - What are "EXM" buildings, where within the city are they largely located and who do these buildings serve </li>
+					<li> My instinc is that Institutional investors we can categprized as govenrment subsidaries, mega firms, private equity companies, the trend we observe is this investors are not interested in other building types like land and industry but you find them across any form of built properties. Resulting in sustained increase in prices - notably in 2008 and 2020 the prices of house dropped due to financial crises and the covid 19 virus respectively. This is supported by Figure 2 and 3 </li>
 					<li>RCD has been on a sustained increase in price </li>
 					<li>Did not find any unusual data points in exploring this part of the data, some property types have low general investments </li>
-				</ol>
+				</ul>
 
 			<figure>
-				<img src="Visualizations/Protype v. Investors 2.png" alt="" />
+				<img src="Assignment 2_Rita Uganden-Teryila/Visualizations/Prices of Different Properties and Property Investors.png" alt="" />
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				Distribution of Investor ArcheTypes and Degree of Investments.
 				</figcaption>
 			</figure>
+				<p>Figure 2 provides a clearer breakdown of the types of properties that attract different investors. While Figure 1 highlights the dominant property types that capture the largest market share, Figure 2—using a bar chart—reveals less prominent property categories that may be overshadowed as small bubbles in Figure 1. A key observation is the lack of investment in land and industrial properties, as well as the reduced investment in recreational properties. At the same time, Figure 2 reinforces the dominance of RCD properties, commercial properties (EXM and CNR), and residential buildings.
+
+					One possible hypothesis is that institutional buyers, such as government entities, primarily invest in commercial buildings to support city growth, while private investors, drawn by Boston’s economic expansion, focus on residential properties—driving prices upward. This is further supported by Figure 3, which shows that the total investment in commercial buildings by institutional bodies far exceeds that of non-institutional investors. Given that commercial properties are among the highest-priced property types, and they are predominantly owned by institutional investors (likely government agencies and large corporations), it is important to understand the distribution of institutional investment in Boston’s housing market.
+
+					To gain insight into this, we need to analyze the spread of different institutional investors in Boston’s housing market. Key questions include: Which institutions are the primary investors? How does their investment compare to that of private buyers? Are there specific policies or incentives driving institutional investment in certain property types? Addressing these questions could provide a deeper understanding of the forces shaping Boston’s real estate landscape.</p>
 
 			<figure>
-				<img src="Visualizations/Trendline Protype v.Investors .png" alt="" />
+				<img src="Assignment 2_Rita Uganden-Teryila/Visualizations/Trendline of Price of Properties Over the Years.png" alt="" />
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+					Investors Trendline Across different Property Type.
 				</figcaption>
 			</figure>
+			<p>The visualization above of property prices over different years, categorized by property type (RCD, COM, EXM), highlights key investment trends. Once again, commercial (COM) properties have attracted the highest level of investment, largely driven by industrial investors. The general upward trend continues until 2023, indicating that increasing amounts of capital are being directed toward commercial buildings in Boston, while comparatively less investment flows into housing for the broader population.
+
+				RCD properties, which appear to be the second most-invested property type, likely represent residential condominiums—suggesting a focus on high-end, luxury housing. Meanwhile, hosuing for the broader population like residential properties such as 1B (one-bedroom units) and apartments remain significantly below the trendline, receiving considerably less investment. Further analysis explores if this is an affordability issues and how much affordability have evolved over the years. If compared to the mean income of residents in differenet zip codeswe can develop potential hypotheses regarding the factors driving these trends - Is the trendline for residential houses significantly below because there is no feasible market for it or people ar not buying the avilable residential houses </p>
 
 			<figure>
-				<img src="Visualizations/Zip v Price.png" alt="" />
+				<img src="Assignment 2_Rita Uganden-Teryila/Visualizations/Zip v Price.png" alt="" />
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				Affordability across different Zip Codes in Bosotn.
 				</figcaption>
 			</figure>
+				<p> we begin to investigate the affordability of properties in Greater Boston and how they may have evolved with time</p>
 
 			<figure>
-				<img src="Visualizations/Distribution of Investor Type Across Zip Code.png" alt="" />
+				<img src="Assignment 2_Rita Uganden-Teryila/Visualizations/Distribution of Investor Type Across Zip Code.png" alt="" />
 				<figcaption>
-				ENTER IMAGE CAPTION HERE.
+				Investors Spatial Distribution Over the Years.
 				</figcaption>
 			</figure>
 			<p> The data reveals that most houses across Boston are purchased by investors rather than being owner-occupied. In the bar charts, the dark blue segments highlight properties where the buyer is not the current owner. In contrast, a few zip codes—primarily in low-income neighborhoods such as Roxbury, Mattapan, and Dorchester, which have predominantly Black demographics—show a higher proportion of homes still occupied by the original buyers. These areas appear to attract lower levels of investment, a trend that is reflected in stagnant rents and suggests a limited inflow of new capital into the city.
