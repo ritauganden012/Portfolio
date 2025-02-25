@@ -1,0 +1,133 @@
+body {
+    /* Set line height to 1.5 times the font size and use the OS’s UI font as the website font */
+    font: 100%/1.5 system-ui;
+    max-width: 50rem; /* Limits width to 50 rems for better readability */
+    margin-inline: auto; /* Centers the content horizontally */
+    padding: 1rem; /* Adds some space inside the body */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr; /* First column auto-width, second column takes remaining space */
+    gap: 1em; /* Adds spacing between grid items */
+}
+
+/*
+   For each label:
+   - Make it a grid container whose columns follow the parent form's grid
+   - Force it to span the entire row (both columns)
+   - Add vertical spacing with margin-block
+*/
+label {
+    display: grid;
+    grid-template-columns: subgrid; /* Inherit the grid columns from the parent */
+    grid-column: 1 / -1; /* Span across both columns of the form grid */
+    margin-block: 1em; /* Adjust spacing as needed */
+}
+
+/*
+   Make the submit button (or any full-width control) span across both columns.
+*/
+button {
+    grid-column: 1 / -1;
+}
+
+/* Ensure form elements inherit the font */
+input,
+textarea,
+button {
+    font: inherit;
+}
+
+/* Make form controls take up the full width and include padding/border in their width */
+input,
+select,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-accent: oklch(59% 50% 0); /* Primary accent color */
+    --border-gray: oklch(80% 3% 200); /* Gray for borders */
+
+    /* Additional color definitions */
+    --background-color: oklch(98% 2% 220); /* Light background */
+    --text-color: oklch(20% 10% 220); /* Dark text for readability */
+    --link-color: oklch(60% 80% 250); /* Accent color for links */
+    --hover-color: oklch(70% 90% 250); /* Brighter color for hover effects */
+}
+
+html {
+    accent-color: var(--color-accent); /* Enables the accent color globally */
+}
+
+nav {
+    display: flex; /* Enable Flexbox on the <nav> element */
+    justify-content: space-around; /* Space out the items */
+    margin-bottom: auto;
+    border-bottom: 1pt solid var(--border-gray); /* Combined shorthand for cleaner syntax */
+}
+
+nav ul {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes padding from the <ul> */
+    margin: 0; /* Removes margin from the <ul> */
+    gap: 10rem; /* Adjust space between items */
+    display: flex; /* Use Flexbox for the <ul> */
+}
+
+nav li {
+    /* With Flexbox on the parent, this rule can be omitted or adjusted as needed */
+    display: inline;
+}
+
+nav a {
+    flex: 1; /* Make each <a> inside the <nav> take equal space */
+    text-align: center; /* Center-aligns the text */
+    text-decoration: none; /* Removes underline */
+    padding: 0.5em; /* Adjust spacing */
+    color: var(--text-color); /* Uses defined text color for consistency */
+}
+
+nav a:hover {
+    border-bottom: 3px solid var(--color-accent); /* Hover effect */
+}
+
+nav .current {
+    font-weight: bold;
+    color: grey;  /* Change color to highlight the current page */
+    text-decoration: underline;  /* Optional: underline the current page link */
+    border-bottom: 1.4em grey; /* Ensures the border is visible */
+    padding-bottom: 0.5em;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1rem; /* Adjust gap as needed */
+  }
+
+  /* Each article uses subgrid for rows and spans 3 rows in the parent grid */
+  .projects article {
+    display: grid;
+    grid-template-rows: subgrid; /* Inherit row structure from the parent grid */
+    grid-row: span 3; /* Span three rows in the parent grid */
+  }
+
+  /* Remove default margin from <h2> to prevent excessive spacing */
+  .projects article h2 {
+    margin: 0;
+  }
+/* Apply consistent defaults for all headings */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  /* Make <h1> significantly larger – 400% of the body text size */
+  h1 {
+    font-size: 400%;
+  }
