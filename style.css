@@ -291,3 +291,66 @@ footer {
     width: 180px;
   }
 }
+
+/* ====================
+   Project Page
+====================== */
+
+/* --- Centering the Main Content --- */
+.site-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* --- Project Grid Layout --- */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* --- Styling Individual Project Cards --- */
+.project {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Ensure content is centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensures all cards take equal height */
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 200px;
+}
+
+.project h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
