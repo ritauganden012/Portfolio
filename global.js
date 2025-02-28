@@ -1,7 +1,9 @@
 // STEP 1
 console.log("IT’S ALIVE!");
 
-// TODO: Add the $$ function here!
+function $$ (selector, context = document) {
+	return Array.from(context.querySelectorAll(selector));
+}
 
 // STEP 2
 // 2.1
@@ -36,7 +38,7 @@ for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 
-	// Create link and add it to nav 
+	// Create link and add it to nav
     if (!ARE_WE_HOME && !url.startsWith("http")) {
         url = "TODO: FILL IN RELATIVE URL"
     }
@@ -52,7 +54,7 @@ for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 
-    // Create correct relative link and add it to nav  
+    // Create correct relative link and add it to nav
     if (!ARE_WE_HOME && !url.startsWith("http")) {
         url = "../" + url;
     }
@@ -60,7 +62,7 @@ for (let p of pages) {
     let a = document.createElement("TODO: create an <a> element!");
     a.href = url;
     a.textContent = title;
-    
+
     if (a.host === location.host && a.pathname === location.pathname) {
         a.classList.add("TODO: FILL IN CLASS NAME");
     }
@@ -130,7 +132,3 @@ if ("colorScheme" in localStorage) {
 
         // TODO: open url here!
 // })
-
-
-
-

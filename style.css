@@ -1,133 +1,293 @@
-body {
-    /* Set line height to 1.5 times the font size and use the OS’s UI font as the website font */
-    font: 100%/1.5 system-ui;
-    max-width: 50rem; /* Limits width to 50 rems for better readability */
-    margin-inline: auto; /* Centers the content horizontally */
-    padding: 1rem; /* Adds some space inside the body */
-    background-color: var(--background-color);
-    color: var(--text-color);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700");
+
+/* =======================================
+   CSS Reset (Inspired by Meyer’s Reset)
+========================================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer, header,
+hgroup, menu, nav, output, ruby, section, summary, time,
+mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-form {
-    display: grid;
-    grid-template-columns: auto 1fr; /* First column auto-width, second column takes remaining space */
-    gap: 1em; /* Adds spacing between grid items */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-/*
-   For each label:
-   - Make it a grid container whose columns follow the parent form's grid
-   - Force it to span the entire row (both columns)
-   - Add vertical spacing with margin-block
-*/
-label {
-    display: grid;
-    grid-template-columns: subgrid; /* Inherit the grid columns from the parent */
-    grid-column: 1 / -1; /* Span across both columns of the form grid */
-    margin-block: 1em; /* Adjust spacing as needed */
+ol, ul {
+  list-style: none;
 }
 
-/*
-   Make the submit button (or any full-width control) span across both columns.
-*/
-button {
-    grid-column: 1 / -1;
+blockquote, q {
+  quotes: none;
 }
 
-/* Ensure form elements inherit the font */
-input,
-textarea,
-button {
-    font: inherit;
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
 }
 
-/* Make form controls take up the full width and include padding/border in their width */
-input,
-select,
-textarea {
-    width: 100%;
-    box-sizing: border-box;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-:root {
-    --color-accent: oklch(59% 50% 0); /* Primary accent color */
-    --border-gray: oklch(80% 3% 200); /* Gray for borders */
-
-    /* Additional color definitions */
-    --background-color: oklch(98% 2% 220); /* Light background */
-    --text-color: oklch(20% 10% 220); /* Dark text for readability */
-    --link-color: oklch(60% 80% 250); /* Accent color for links */
-    --hover-color: oklch(70% 90% 250); /* Brighter color for hover effects */
-}
-
+/* ====================
+   Box Sizing
+====================== */
 html {
-    accent-color: var(--color-accent); /* Enables the accent color globally */
+  box-sizing: border-box;
 }
 
-nav {
-    display: flex; /* Enable Flexbox on the <nav> element */
-    justify-content: space-around; /* Space out the items */
-    margin-bottom: auto;
-    border-bottom: 1pt solid var(--border-gray); /* Combined shorthand for cleaner syntax */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-nav ul {
-    list-style: none; /* Removes default list styling */
-    padding: 0; /* Removes padding from the <ul> */
-    margin: 0; /* Removes margin from the <ul> */
-    gap: 10rem; /* Adjust space between items */
-    display: flex; /* Use Flexbox for the <ul> */
+/* ====================
+   Custom Properties
+====================== */
+:root {
+  --primary-font: 'Source Sans Pro', Arial, sans-serif;
+  --base-font-size: 13pt;
+  --line-height: 1.5em;
+  --text-color: #676d79;
+  --color-text-primary: #333;  /* Adjust as needed */
+  --color-text-secondary: #676d79;
+  --link-underline: dotted 1px #d0d6e2;
+  --link-hover-color: #e7746f;
+  --input-border: 1px solid #dee0e3;
+  --input-bg: #F4F5F7;
+  --button-border: 1px solid #dee0e3;
+  --button-alt-bg: #676d79;
+  --spacing-xl: 2rem;
+  --spacing-md: 1rem;
+  /* Uncomment and define these if needed:
+     --border-gray: #ccc;
+     --border-width-thin: 1px;
+     --color-border: #ccc;
+  */
 }
 
-nav li {
-    /* With Flexbox on the parent, this rule can be omitted or adjusted as needed */
-    display: inline;
+/* ====================
+   Base Typography
+====================== */
+body, input, textarea, select {
+  font-family: var(--primary-font);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+  font-weight: 300;
+  background: #fff;
 }
 
-nav a {
-    flex: 1; /* Make each <a> inside the <nav> take equal space */
-    text-align: center; /* Center-aligns the text */
-    text-decoration: none; /* Removes underline */
-    padding: 0.5em; /* Adjust spacing */
-    color: var(--text-color); /* Uses defined text color for consistency */
+b, strong {
+  font-weight: 600;
 }
 
-nav a:hover {
-    border-bottom: 3px solid var(--color-accent); /* Hover effect */
-}
-
-nav .current {
-    font-weight: bold;
-    color: grey;  /* Change color to highlight the current page */
-    text-decoration: underline;  /* Optional: underline the current page link */
-    border-bottom: 1.4em grey; /* Ensures the border is visible */
-    padding-bottom: 0.5em;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1rem; /* Adjust gap as needed */
-  }
-
-  /* Each article uses subgrid for rows and spans 3 rows in the parent grid */
-  .projects article {
-    display: grid;
-    grid-template-rows: subgrid; /* Inherit row structure from the parent grid */
-    grid-row: span 3; /* Span three rows in the parent grid */
-  }
-
-  /* Remove default margin from <h2> to prevent excessive spacing */
-  .projects article h2 {
-    margin: 0;
-  }
-/* Apply consistent defaults for all headings */
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
-    text-wrap: balance;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ====================
+   Navigation
+====================== */
+nav {
+  display: flex;
+  font-family: var(--primary-font);
+  font-size: var(--base-font-size);
+  justify-content: flex-end;
+  color: var(--color-text-primary);
+  border-bottom: 1.5pt solid var(--border-gray); /* Ensure --border-gray is defined */
+  width: 100%;
+}
+
+.menu-links,
+.menu-links:visited {
+  display: inline-block;
+  margin: 0 0.5vw;
+  padding: var(--spacing-xl);
+  border-bottom: var(--border-width-thin) solid var(--color-border); /* Ensure --border-width-thin and --color-border are defined */
+}
+
+/* ====================
+   Header & Navigation Links
+====================== */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem 2vw;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  padding: 0.5rem 1rem;
+}
+
+/* ====================
+   Links
+====================== */
+a {
+  text-decoration: none;
+  border-bottom: var(--link-underline);
+  color: inherit;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
+/* ====================
+   Form Elements
+====================== */
+input, textarea, select {
+  display: block;
+  width: 100%;
+  padding: 0.75em;
+  border: var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--link-hover-color);
+  box-shadow: 0 0 0 1px var(--link-hover-color);
+}
+
+/* ====================
+   Buttons
+====================== */
+.button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  font-weight: 600;
+  border: var(--button-border);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+
+.button.alt {
+  background: var(--button-alt-bg);
+  border-color: var(--button-alt-bg);
+  color: #d81b1bd0;
+}
+
+.button.alt:hover {
+  background: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+}
+
+/* ====================
+   Container
+====================== */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ====================
+   Footer
+====================== */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* ====================
+   Intro Section
+====================== */
+.intro-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  max-width: 1000px;
+  margin: var(--spacing-xl) auto;
+  padding: 2.5rem var(--spacing-md) var(--spacing-xl);
+}
+
+.intro-container:first-of-type {
+  align-items: flex-start;
+}
+
+.introimg {
+  width: 200px;
+  height: auto;
+  clip-path: circle();
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text h1 {
+  margin-bottom: var(--spacing-md);
+  font-size: 2rem;
+  color: var(--color-text-primary);
+}
+
+.intro-text p {
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* ====================
+   Responsive Design
+====================== */
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
   }
 
-  /* Make <h1> significantly larger – 400% of the body text size */
-  h1 {
-    font-size: 400%;
+  .introimg {
+    width: 180px;
   }
+}
