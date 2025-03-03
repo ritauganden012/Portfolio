@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+			<h3>Analysis of Visualization from Jeffrey Shaman’s Article on Omicron Spread in the USA</h3>
+		</h1>
+
+		<p>
+			<strong>Rita Uganden-Teryila</strong> — <em>rita27@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<p> Jeffrey Shaman, an epidemiologist, presents findings on the spread of the Omicron variant in the United States. His opinion article highlights key claims, including the seasonal surge of COVID-19 cases in early January and late December, Omicron’s faster transmission compared to previous variants, its ability to reinfect individuals with prior infections or previously vaccinated, and its relatively lower hospitalization rates for infected individuals. While we do not have direct access to the dataset used to support these claims, we assume they are based on the available data. However, the accompanying visualization does not fully encode all of these claims effectively, limiting its ability to convey the magnitude and comparative impact of Omicron’s spread.impact of Omicron’s spread.
+
+			</p>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="COVID-19 Spiral Visualization"  style="max-width: 100%; max-height:500px; height:auto; display: block; margin: 0 auto; border-radius: 8px;" />
+			</figure>
+
+			<p> <strong>Strengths of the Visualization</strong>
+
+				The visualization effectively illustrates the spread of COVID-19 across different months from January to December, covering the years 2020 to 2022. It clearly shows the rise and fall of reported cases, highlighting significant peaks in January 2021 and January 2022. Listed below are other significant preceptive insights drawn from the visualization
+			</p>
+
+			<ul>
+
+					<li>The use of color contrasts well with the background and month indicators, drawing attention to the shape of the curves without distractions.</li>
+					<li>The wavy nature of the lines intuitively represents growth and fluctuations in virus transmission, reinforcing the concept of surges and declines.</li>
+					<li>The almost organic, spiral flowing representation makes it easier to grasp overall trends at a glance, drawing the user even more into the head space of virus and viral infection - i believe this will enhance engagement and interpretation.</li>
+					<li>The visualization encodes data using only two dimensions (time and variant type) for simplicity.</li>
+			</ul>
+
+
+			<p><strong> Critques of the Visualization</strong> While the visualization communicates strongly the growth and spread of the omicron virus in two dimension (time and a growth of single variant) incorporating color variation could have helped encode additional information about other variants, especially since the article claims that the spread of Omicron was more significant compared to other variants. However, the visualization fails to clearly communicate this, as there is no distinct differentiation between Omicron and the various COVID-19 variants or their relative spread. Other limitations I noticed regarding the visual encoding include:
+
+			</p>
+
+			<ul>
+				<li>
+					<strong>Lack of Magnitude Representation:</strong>
+					The visualization does not allow for precise comparisons of the magnitude of cases between different years.
+					It depends on the ebbs and flows of the curve to estimate case growth.
+					While we can identify periods of increased case reporting, the visualization is prone to **overestimation bias** due to the saturation of cases.
+					Although it effectively shows general patterns of increase and decrease, it **lacks a clear quantitative measure** of case counts over time, leading to potential misinterpretation.
+				</li>
+				<li>
+					<strong>No Context for Severity or Hospitalization Rates:</strong>
+					Although the article mentions that Omicron did not result in higher hospitalization rates, **this information is absent from the visualization**.
+					Additional data on **severity trends, hospitalization rates, or vaccination effectiveness** could provide a more complete picture of the impact of Omicron and other variants.
+				</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+      <figure>
+				<img src="./Sketches/Sketch1 - Redesign Org.png" alt="" style="max-width: 100%; max-height:500px; height:auto; display: block; margin: 0 auto; border-radius: 8px;"/>
+				<figcaption>
+				<em>Visualizing the Rise of Omicron and Delta Variants Over Time.</em>
+				</figcaption>
+			</figure>
+
+			<p>
+				<strong>Design Rationale for Sketch 1:</strong>
+				The sketch above revises the original skectch by Shaman. It aims to show both growth and variants in a single visual differentiated by colours and thickness. The rational is explained below
+			</p>
+
+			<ul>
+				<ul>
+					<li>Encodes both the magnitude of reported cases and the dominant virus variant.</li>
+					<li>Line thickness represents case magnitude, while color differentiates between variants.</li>
+					<li>Since Omicron was more infectious, we expect to see thicker pink-colored lines dominating the graph.</li>
+					<li>Mirrors the original visualization by Jeffrey Shaman, which also does not include explicit quantitative values.</li>
+					<li>Enhances clarity by adding color-coded differentiation for variants and visual encoding of case surges.</li>
+				</ul>
+
+			</ul>
+			<p>
+				You may find a second time-series visualization just below the spiral. This was an attempt to understand the flow of growth as I iterated through the design. While I see the spiral visualization as creative, it was more intuitive to start with a linear representation to observe the growth before translating it into the original visualization. It also effectively communicates the perceived time-based growth of COVID-19 while differentiating the dominant variants in each time series.
+			</p>
+
+
+			<figure>
+				<img src="./Sketches/Sketch 2 .png" alt="" style="max-width: 100%; max-height:500px; height:auto; display: block; margin: 0 auto; border-radius: 8px;" />
+				<figcaption>
+				<em>Violin Charts Visualizing the Spread and Dominance of COVID-19 Variants Over Time</em>
+				</figcaption>
+			</figure>
+
+			<p>
+				<strong><em>Design Rationale for Sketch 2</em></strong>:
+			</p>
+
+			<ul>
+				<li>These representations help visualize the distribution of cases over time. With this visualization a user can easily identify which variant peaked earlier, peaked more frequently compared to the other</li>
+				<li>A violin plot for both variants can show when a given variant dominated the number of reported infections.</li>
+				<li>While this plot may be intuitive for academics, its effectiveness for the general public is uncertain.</li>
+			</ul>
+
+
+			<figure>
+				<img src="./Sketches/Sketch3.png" alt="" style="max-width: 100%; max-height:500px; height:auto; display: block; margin: 0 auto; border-radius: 8px;"/>
+				<figcaption>
+				<em>Visualizing COVID-19 Variant Growth – Color Encodes Variants, Size Represents Case Magnitude.</em>
+				</figcaption>
+			</figure>
+
+			<p>
+				<strong><em>Rationale for Sketch 3:</em></strong>
+			</p>
+
+			<ul>
+				<li>This visualization perceptively encodes variants using colors and the magnitude of infected people using circle size.</li>
+				<li>An iterative design approach provides a simple method for communicating the growth of various variants over time.</li>
+				<li>Steven’s Power Law can be applied to account for bias in the perceived magnitude of shape size.</li>
+			</ul>
+
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+
+			<figure>
+				<img src="./Sketches/Final Vis:Sketch.png" alt="" style="max-width: 100%; max-height:500px; height:auto; display: block; margin: 0 auto; border-radius: 8px;"/>
+				<figcaption>
+          BRIEF CAPTION HERE.
+				</figcaption>
+			</figure>
+
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+				<b>Dataset Analysis</b><br>
+				The design process commenced with a thorough analysis of the dataset, utilizing Python for exploratory data analysis.
+				Key functions like <code>df.head()</code>, <code>df.info()</code>, and <code>df.describe()</code> helped uncover
+				the dataset’s structure, revealing patterns and potential inconsistencies.
+			</p>
+
+			<p>
+				A notable aspect was the daily patient flux over 2020–2021, which capture some trends in the number of test conducted, number of cases confirmed,
+				recoveries, and death. I was particularly interested in visualizing the relationship between recoveries and confirmed cases — a metric I termed <strong> recovery rate</strong>, calculated as:
+
+			</p>
+
+			<p>
+					<strong> Recovery Rate = (Recovered Patients) / (Confirmed Patients)</strong>
+			</p>
+
+			<p>
+				This metric, generally ranging from 0 to 1, indicated recovery success. Occasionally, recovery rates exceeded 1,
+				suggesting data backlogs or improvements in treatment. Recognizing these patterns was essential for understanding the pandemic's progression.
+			</p>
+
+			<p>
+				<b>Visualization Approach & Human-Centered Design</b><br>
+				For visualization, I aimed for an intuitive and empathetic approach. Rather than using standard bar charts or line graphs,
+				I opted for an <em> isotype graph </em>, featuring human icons to represent data, effectively humanizing the statistics. Initially, I explored Tableau for visualization, but Python’s scripting offered greater flexibility for customization,
+				particularly for creating the isotype graph.
+			</p>
+
+			<p>
+				The final visualization successfully captures recovery trends while maintaining a human-centered perspective,
+				ensuring that the data remains accessible and engaging.
+			</p>
+
+
+
+
+      <h3>Reflection</h3>
+
+		<p>
+			Finding a single plot that effectively represents all variables in a dataset is challenging. Initially, I felt the original visualization was sufficient, but revisiting lecture notes highlighted subtle ways of encoding data such as pre-attentive processing and signal detetction
+			I noticed how the background graph subtly displayed years and months in a faded color, directing attention to the spiral growth, which was highlighted with a bright, squiggly outline. This made me consider what other dimensions could be explored, especially after reading the accompanying text. However, I recognized that adding too many variables in a single plot could reduce clarity instead of enhancing it.
+		</p>
+
+		<p>
+			Applying this thought process to the provided COVID-US dataset, I focused on visualizing the flux of recoveries while maintaining clarity. While the dataset contains much more information, no single visualization can capture everything. The challenge—and the art—lies in selecting what to highlight and making it impactful.
+		</p>
+
+		</section>
+	</main>
+</body>
+</html>

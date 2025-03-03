@@ -354,3 +354,168 @@ footer {
     font-size: 1rem;
     color: var(--text-color);
 }
+
+
+/* ====================
+   Resume Page
+====================== */
+
+.wrapper {
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Resume Header Layout --- */
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin: 2em 0;
+    padding-bottom: 2em;
+}
+
+.name-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    min-width: 300px;
+}
+
+.name-block h1 {
+    margin: 0;
+}
+
+.name-block .subtitle {
+    font-weight: normal;
+    color: var(--color-text-secondary);
+}
+
+.contact-info {
+    float: right;
+    text-align: right;
+    margin: 0;
+    padding-top: 0;
+    width: 100%;
+    height: 2em;
+    position: relative;
+}
+
+.contact-line {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-small);
+    white-space: nowrap;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-line a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+}
+
+.contact-line a:hover {
+    color: var(--color-text-primary);
+}
+
+.contact-icon {
+    margin-right: 0.5em;
+}
+
+/* --- Section Headers --- */
+h5 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+/* --- Resume Sections --- */
+.resume-section {
+    margin: 2em 0;
+}
+
+.resume-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-list li {
+    margin-bottom: 1.2em;
+    display: block;
+}
+
+.resume-list li:last-child {
+    margin-bottom: 0;
+}
+
+.position-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.2em;
+}
+
+.position {
+    font-weight: bold;
+    color: var(--color-text-primary);
+}
+
+.date-range {
+    color: var(--color-text-secondary);
+    font-style: normal;
+    white-space: nowrap;
+    font-size: var(--font-size-small);
+}
+
+.institution {
+    color: var(--color-text-primary);
+    font-style: italic;
+    margin-bottom: var(--spacing-xs);
+}
+
+.description {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    margin-left: var(--spacing-md);
+}
+
+.description::before {
+    content: "•";
+    margin-right: var(--spacing-sm);
+    color: var(--color-text-secondary);
+}
+
+.resume-list .institution a,
+.description a {
+    text-decoration: underline;
+    color: var(--color-text-primary);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .resume-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-top: 1rem;
+    }
+}
+
+/* ====================
+   Assignment Page
+====================== */
+.docimages {
+  max-width: 100%;  /* Ensures the image never exceeds its container */
+  height: auto;  /* Maintains the aspect ratio */
+  display: block;  /* Removes any extra spacing below the image */
+  margin: 0 auto;  /* Centers the image if needed */
+  border-radius: 8px;  /* Optional: Adds rounded corners */
+
+}
