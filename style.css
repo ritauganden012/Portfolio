@@ -170,19 +170,22 @@ a:hover {
   border-color: var(--link-hover-color);
 }
 
+
 /* ====================
    Form Elements
 ====================== */
 input, textarea, select {
-  display: block;
-  width: 100%;
-  padding: 0.75em;
-  border: var(--input-border);
-  border-radius: 4px;
-  background-color: var(--input-bg);
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
+    display: block;
+    max-width : 80%;
+    width: 100%;
+    padding: 0.75em;
+    border: var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--link-hover-color);
@@ -218,6 +221,7 @@ input:focus, textarea:focus, select:focus {
   background: var(--link-hover-color);
   border-color: var(--link-hover-color);
 }
+
 
 /* ====================
    Container

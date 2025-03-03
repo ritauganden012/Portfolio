@@ -10,43 +10,40 @@
 <body>
 
     <!-- Navigation Menu -->
-    <nav>
-        <ul>
+    <nav aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
             <li><a href="../projects/index.html">Projects</a></li> <!-- Link to the projects page -->
             <li><a href="index.html"class="current">Contact</a></li> <!-- Link to the current page -->
+            <li><a href="../Resume/index.html">Resume</a></li>
             <li><a href="https://github.com/ritauganden012" target="_blank">GitHub</a></li> <!-- Link to GitHub profile with target="_blank" -->
-            <li><a href="../index.html">Home</a></li>
+
         </ul>
     </nav>
 
-<h1> Contacts Me </h1>
-<p> provide your contact information below </p>
+<h1> Stay in touch! </h1>
 
-  <!-- Contact Form -->
-  <form action="mailto:rita27@mit.edu.com" method="GET">
-    <fieldset>
-      <legend>Contact Form</legend>
+<!-- Contact Form -->
+<form action="mailto:rita27@mit.edu.com" method="GET">
+  <fieldset>
+    <legend>Contact Form</legend>
 
-      <!-- Email field -->
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <br><br>
+    <!-- Email field -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-      <!-- Subject field -->
-      <label for="subject">Subject:</label>
-      <input type="text" id="subject" name="subject" required>
-      <br><br>
+    <!-- Subject field -->
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
 
-      <!-- Message field -->
-      <label for="body">Message:</label>
-      <textarea id="body" name="body" rows="5" required></textarea>
-      <br><br>
+    <!-- Message field -->
+    <label for="body">Message:</label>
+    <textarea id="body" name="body" rows="5" required></textarea>
 
-      <!-- Submit Button -->
-      <button>Submit</button>
-    </fieldset>
-  </form>
-
+    <!-- Submit Button -->
+    <button class="button">Submit</button>
+  </fieldset>
+</form>
 
 </body>
 
