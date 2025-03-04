@@ -1,134 +1,123 @@
-// STEP 1
+/// STEP 1: Confirm script is running
 console.log("IT’S ALIVE!");
 
-function $$ (selector, context = document) {
-	return Array.from(context.querySelectorAll(selector));
+// Utility function to select multiple elements
+function $$(selector, context = document) {
+    return Array.from(context.querySelectorAll(selector));
 }
 
-// STEP 2
-// 2.1
-let navLinks = $$("nav a");
-
-// 2.2
-let currentLink = "TODO: FILL IN!!"
-
-// 2.3
-if (currentLink) { // or if (currentLink !== undefined)
-	// TODO: FILL IN!!
-}
-
-// STEP 3
-// TODO: Remove <nav> menu from all HTML pages!
-// TODO: Comment out the step 2 code in this file!
-
-// step 3.1
-let pages = [
-	{url: "", title: "Home"},
-	{url: "projects/", title: "Projects"},
-	// TODO: add the rest of your pages here
+// STEP 3.1: Define navigation links
+const pages = [
+    { url: "index.html", title: "Home" },
+    { url: "projects/index.html", title: "Projects" },
+    { url: "contact/index.html", title: "Contact" },
+    { url: "resume/index.html", title: "Resume" },
+    { url: "https://github.com/ritauganden012", title: "GitHub" }
 ];
 
-let nav = document.createElement("TODO: FILL IN!!");
-document.body.prepend("TODO: FILL IN!!");
-
-// TODO: Inside index.html (our home page), add a class="home" attribute to the <html lang="en"> element!
+// STEP 3.2: Detect if we are on the home page
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
+// Create the `<nav>` element
+let nav = document.createElement("nav");
+nav.setAttribute("aria-label", "Main navigation");
+
+// Create the `<ul>` element for the links
+let ul = document.createElement("ul");
+ul.classList.add("nav-links");
+
+// Loop through `pages` and generate list items `<li>`
 for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
+    let url = p.url;
+    let title = p.title;
 
-	// Create link and add it to nav
+    // Correct relative URL handling for subpages
     if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = "TODO: FILL IN RELATIVE URL"
+        url = `/${url}`; // Ensure correct relative path
     }
 
-	nav.insertAdjacentHTML("beforeend", `<a href="${ url }">${ title }</a>` );
-}
-
-
-// step 3.2
-// TODO: Comment out the `for (let p of pages) {...}` loop you made in step 3.1 and uncomment the for loop below! I have helped you restructure the loop a bit in a way that may be confusing from the lab instructions
-
-/* for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
-
-    // Create correct relative link and add it to nav
-    if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = "../" + url;
-    }
-
-    let a = document.createElement("TODO: create an <a> element!");
+    let li = document.createElement("li");
+    let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
 
+    // Highlight active page
     if (a.host === location.host && a.pathname === location.pathname) {
-        a.classList.add("TODO: FILL IN CLASS NAME");
+        a.classList.add("current");
     }
 
-    if ("TODO: FILL IN CONDITION TO OPEN LINK IN NEW TAB") {
+    // Open external links in new tab
+    if (!url.startsWith("/") && !url.startsWith("index.html")) {
         a.target = "_blank";
     }
 
-    nav.append(a);
-} */
-
-// STEP 4
-// step 4.1
-// TODO: Inside your styles.css file, adjust your navigation menu colors! There is nothing to do in this file in this step.
-
-// step 4.2
-document.body.insertAdjacentHTML("afterbegin", `
-	<label class="color-scheme">
-		Theme:
-		<select>
-			<option value="light dark">TODO: ADD OPTION LABEL HERE</option>
-            <option value="dark">TODO: ADD OPTION LABEL HERE</option>
-            TODO: ADD LIGHT MODE OPTION HERE!
-		</select>
-	</label>`
-);
-
-// step 4.3
-// TODO: Inside your styles.css file, add styling to move the switcher with class .color-scheme to the top right corner. There is nothing to do in this file in this step
-
-// step 4.4
-let select = document.querySelector("TODO: FILL IN SELECTOR");
-
-select.addEventListener("input", function (event) {
-	console.log("color scheme changed to", event.target.value);
-
-    // TODO: use document.documentElement.style.setProperty to set the color scheme here! (hint: take a look at the handout)
-
-    // TODO: (step 4.5.1) uncomment the line below!
-    // localStorage.colorScheme = event.target.value;
-});
-
-
-// step 4.5 (continued)
-// Reminder: uncomment line inside the event listener for 4.5.1
-if ("colorScheme" in localStorage) {
-    // TODO: set color scheme to the stored local value (hint: look at handout)
+    li.appendChild(a);
+    ul.appendChild(li);
 }
 
-// STEP 5 (OPTIONAL)
-// Note: This is an optional part of the lab! If you want to do it, uncomment the lines below and fill in the TODOs. Otherwise, leave the lines commented out.
+// Append `<ul>` to `<nav>`
+nav.appendChild(ul);
 
-// TODO: Inside the /contact/index.html, remove the enctype and method attributes from the <form> element. Remove the "Email" label and input as well.
+// STEP 3.3: Select or create `<header>` and append `<nav>`
+let header = document.querySelector("header");
 
-// TODO: uncomment below to select the form element!
-// let form = document.querySelector("form");
+if (!header) {
+    header = document.createElement("header");
+    document.body.prepend(header); // Insert `<header>` at the top of `<body>`
+}
 
-// form?.addEventListener("TODO: FILL IN EVENT WE ARE WAITING FOR", function (event) {
-//     event.preventDefault();
-//     let data = new FormData(form);
+header.appendChild(nav);
 
-    // let url = form.action + "?";
-    // for (let [name, value] of data) {
-	//     url += (name + "=" + value + "&")
-	//     console.log(name, value);
-    // }
+//
+// STEP 4: Add Theme Switcher
+//
+document.body.insertAdjacentHTML("afterbegin", `
+    <label class="color-scheme">
+        Theme:
+        <select id="theme-switcher">
+            <option value="light dark">Auto (System Default)</option>
+            <option value="dark">Dark Mode</option>
+            <option value="light">Light Mode</option>
+        </select>
+    </label>
+`);
 
-        // TODO: open url here!
-// })
+// STEP 4.4: Add theme switcher logic
+let select = document.querySelector("#theme-switcher");
+
+select.addEventListener("input", function (event) {
+    console.log("Color scheme changed to", event.target.value);
+    document.documentElement.style.setProperty("color-scheme", event.target.value);
+
+    // Save to localStorage
+    localStorage.setItem("colorScheme", event.target.value);
+});
+
+// STEP 4.5: Load saved theme on page load
+if (localStorage.getItem("colorScheme")) {
+    let savedTheme = localStorage.getItem("colorScheme");
+    document.documentElement.style.setProperty("color-scheme", savedTheme);
+    select.value = savedTheme; // Keep the dropdown in sync
+}
+
+// STEP 5 (Optional): Form Handling for Contact Page
+if (document.querySelector("form")) {
+    let form = document.querySelector("form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let data = new FormData(form);
+
+        let url = form.action + "?";
+        for (let [name, value] of data) {
+            url += encodeURIComponent(name) + "=" + encodeURIComponent(value) + "&";
+            console.log(name, value);
+        }
+
+        // Open URL (simulate form submission)
+        window.location.href = url;
+    });
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
