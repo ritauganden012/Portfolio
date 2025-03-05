@@ -581,3 +581,31 @@ html, body {
   /* background-color: Canvas; Uses system-defined background color */
   color: CanvasText; /* Uses system-defined text color */
 }
+
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #302828e0; /* Dark background */
+  color: rgba(236, 236, 236, 0.562); /* Light text */
+}
+
+/* Ensure headings and links are visible in dark mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark mode form elements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}

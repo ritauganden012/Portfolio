@@ -69,55 +69,58 @@ if (!header) {
 header.appendChild(nav);
 
 //
-// STEP 4: Add Theme Switcher
-//
+// Add Theme Switcher Dropdown
 document.body.insertAdjacentHTML("afterbegin", `
     <label class="color-scheme">
         Theme:
-        <select>
-            <option value="light dark">Auto (System Default)</option>
+        <select id="theme-selector">
+            <option value="auto">Auto (System Default)</option>
             <option value="dark">Dark Mode</option>
             <option value="light">Light Mode</option>
         </select>
     </label>
 `);
 
-// STEP 4.4: Add theme switcher logic
-let select = document.querySelector(".color-scheme select");
+const themeSelect = document.querySelector("#theme-selector");
 
-select.addEventListener("input", function (event) {
-    console.log("Color scheme changed to", event.target.value);
-    document.documentElement.style.setProperty("color-scheme", event.target.value);
+// Function to update theme
+function updateTheme(theme) {
+    document.body.classList.remove("light-mode", "dark-mode");
 
-    // Save to localStorage
-    localStorage.setItem("colorScheme", event.target.value);
+    if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else if (theme === "light") {
+        document.body.classList.add("light-mode");
+    } else {
+        // Auto mode (system preference)
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.add("light-mode");
+        }
+    }
+
+    // Save theme to localStorage
+    localStorage.setItem("theme", theme);
+}
+
+// Change theme on dropdown selection
+themeSelect.addEventListener("change", function (event) {
+    updateTheme(event.target.value);
 });
 
-// STEP 4.5: Load saved theme on page load
-if (localStorage.getItem("colorScheme")) {
-    let savedTheme = localStorage.getItem("colorScheme");
-    document.documentElement.style.setProperty("color-scheme", savedTheme);
-    select.value = savedTheme; // Keep the dropdown in sync
-}
+// Load saved theme or use system preference
+const savedTheme = localStorage.getItem("theme") || "auto";
+themeSelect.value = savedTheme;
+updateTheme(savedTheme);
 
-// STEP 5 (Optional): Form Handling for Contact Page
-if (document.querySelector("form")) {
-    let form = document.querySelector("form");
+// Listen for system preference changes (Auto Mode)
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (localStorage.getItem("theme") === "auto") {
+        updateTheme("auto");
+    }
+});
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        let data = new FormData(form);
-
-        let url = form.action + "?";
-        for (let [name, value] of data) {
-            url += encodeURIComponent(name) + "=" + encodeURIComponent(value) + "&";
-            console.log(name, value);
-        }
-
-        // Open URL (simulate form submission)
-        window.location.href = url;
-    });
-}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
