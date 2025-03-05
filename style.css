@@ -202,6 +202,18 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 1px var(--link-hover-color);
 }
 
+/* Centering the form container */
+.contact-form {
+  width: 100%;
+  max-width: 800px; /* Limits form width for readability */
+  margin: 25px auto 50px; /* Spacing from top and bottom, centered horizontally */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+
+
 /* ====================
    Buttons
 ====================== */
