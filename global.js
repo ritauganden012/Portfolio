@@ -8,10 +8,10 @@ function $$(selector, context = document) {
 
 // STEP 3.1: Define navigation links
 const pages = [
-    { url: "/index.html", title: "Home" },
-    { url: "/Projects/index.html", title: "Projects" },
-    { url: "/Contact/index.html", title: "Contact" },
-    { url: "/Resume/index.html", title: "Resume" },
+    { url: "", title: "Home" },
+    { url: "Projects/", title: "Projects" },
+    { url: "Contact/", title: "Contact" },
+    { url: "Resume/", title: "Resume" },
     { url: "https://github.com/ritauganden012", title: "GitHub" }
 ];
 
