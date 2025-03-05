@@ -74,7 +74,7 @@ header.appendChild(nav);
 document.body.insertAdjacentHTML("afterbegin", `
     <label class="color-scheme">
         Theme:
-        <select id="theme-switcher">
+        <select>
             <option value="light dark">Auto (System Default)</option>
             <option value="dark">Dark Mode</option>
             <option value="light">Light Mode</option>
@@ -83,7 +83,7 @@ document.body.insertAdjacentHTML("afterbegin", `
 `);
 
 // STEP 4.4: Add theme switcher logic
-let select = document.querySelector("#theme-switcher");
+let select = document.querySelector(".color-scheme select");
 
 select.addEventListener("input", function (event) {
     console.log("Color scheme changed to", event.target.value);

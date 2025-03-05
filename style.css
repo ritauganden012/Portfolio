@@ -19,7 +19,6 @@ mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  color-scheme: dark
 }
 
 article, aside, details, figcaption, figure,
@@ -51,6 +50,7 @@ table {
 ====================== */
 html {
   box-sizing: border-box;
+  color-scheme: dark;
 }
 
 *, *::before, *::after {
@@ -93,7 +93,7 @@ body, input, textarea, select {
   line-height: var(--line-height);
   color: var(--text-color);
   font-weight: 300;
-  background: #fff;
+  /* background: #fff; */
 }
 
 b, strong {
@@ -555,7 +555,6 @@ h5 {
   position: absolute;
   bottom: 4px;
   right: 4px;
-  background: rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
   border-radius: 5px;
   backdrop-filter: blur(10px);
@@ -579,6 +578,6 @@ html, body {
   margin: 0;
   padding: 0;
   color-scheme: light dark; /* Enables both light and dark mode */
-  background-color: Canvas; /* Uses system-defined background color */
+  /* background-color: Canvas; Uses system-defined background color */
   color: CanvasText; /* Uses system-defined text color */
 }
