@@ -386,153 +386,142 @@ footer {
    Resume Page
 ====================== */
 
-.wrapper {
-    max-width: 1000px;
-    width: 100%;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+./* ====================
+ Resume Container
+====================== */
+.resume-container {
+  max-width: 900px;
+  width: 100%;
+  background: var(--input-bg);
+  margin: 30px auto;
+  padding: var(--spacing-xl);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Resume Header Layout --- */
+/* ====================
+Resume Header
+====================== */
 .resume-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    margin: 2em 0;
-    padding-bottom: 2em;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
 }
 
-.name-block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    min-width: 300px;
+.resume-header h1 {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
 }
 
-.name-block h1 {
-    margin: 0;
+.resume-header p {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
 }
 
-.name-block .subtitle {
-    font-weight: normal;
-    color: var(--color-text-secondary);
-}
-
+/* ====================
+Contact Information
+====================== */
 .contact-info {
-    float: right;
-    text-align: right;
-    margin: 0;
-    padding-top: 0;
-    width: 100%;
-    height: 2em;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
 }
 
-.contact-line {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-small);
-    white-space: nowrap;
-    margin-bottom: var(--spacing-xs);
+.contact-info a {
+  color: inherit;
+  border-bottom: var(--link-underline);
+  transition: color 0.2s ease;
 }
 
-.contact-line a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
+.contact-info a:hover {
+  color: var(--link-hover-color);
 }
 
-.contact-line a:hover {
-    color: var(--color-text-primary);
+/* ====================
+Resume Sections
+====================== */
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.contact-icon {
-    margin-right: 0.5em;
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* --- Section Headers --- */
-h5 {
-    font-size: 1.5rem;
-    margin: 1.5rem 0 1rem;
-    border-bottom: 2px solid var(--color-border);
-    padding-bottom: 0.5rem;
+.header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: bold;
 }
 
-/* --- Resume Sections --- */
-.resume-section {
-    margin: 2em 0;
+.contact {
+  font-size: 1em;
+  margin-top: 10px;
 }
 
-.resume-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Sections */
+section {
+  margin-bottom: 30px;
 }
 
-.resume-list li {
-    margin-bottom: 1.2em;
-    display: block;
+section h2 {
+  font-size: 1.75em;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #333;
 }
 
-.resume-list li:last-child {
-    margin-bottom: 0;
+/* Education, Experience, and Projects Items */
+.edu-item, .exp-item, .project-item {
+  margin-bottom: 20px;
 }
 
-.position-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.2em;
+.edu-item h3, .exp-item h3, .project-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
 }
 
-.position {
-    font-weight: bold;
-    color: var(--color-text-primary);
+/* Paragraphs and Lists */
+.edu-item p, .exp-item p, .project-item p, .additional p {
+  margin: 5px 0;
 }
 
-.date-range {
-    color: var(--color-text-secondary);
-    font-style: normal;
-    white-space: nowrap;
-    font-size: var(--font-size-small);
+ul {
+  margin: 10px 0 10px 20px;
+  padding: 0;
+  list-style-type: disc;
 }
 
-.institution {
-    color: var(--color-text-primary);
-    font-style: italic;
-    margin-bottom: var(--spacing-xs);
+/* Subsections within Experience */
+.subsection {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
-.description {
-    font-size: var(--font-size-small);
-    color: var(--color-text-secondary);
-    margin-left: var(--spacing-md);
+.subsection h4 {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+  color: #555;
 }
 
-.description::before {
-    content: "•";
-    margin-right: var(--spacing-sm);
-    color: var(--color-text-secondary);
+/* Links */
+a {
+  color: #333;
+  text-decoration: none;
 }
 
-.resume-list .institution a,
-.description a {
-    text-decoration: underline;
-    color: var(--color-text-primary);
+a:hover {
+  text-decoration: underline;
 }
 
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-    .resume-header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-info {
-        margin-top: 1rem;
-    }
-}
 
 /* ====================
    Assignment Page
