@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<script type="module" src="global.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+		/* Apply Lato for body text */
+        body, p,li {
+            font-size: 11pt;
+            font-family: 'Lato', sans-serif;
+			line-height: 1.5;  /* Adds slight spacing between lines */
+            letter-spacing: 0.1px; /* Adds subtle spacing between letters */
+			margin: 0;
+            padding: 4px;
+			text-align: justify;
+        }
+
+        /* Apply Montserrat for headings */
+        h1, h2, h3, h4, h5, h6 {
+
+            font-weight: 700;
+			line-height: 1.2; /* Slightly larger spacing for readability */
+            letter-spacing: 0.5px; /* Slightly spaced out for a sleek look */
+        }
+    </style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 4</small>
+			Persuasive or Deceptive Visualization?
+		</h1>
+
+		<p>
+			<strong>Rita Uganden-Teryila</strong> — <em>rita27@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+    <h2> Proposition : Teenagers and Abortion - <em> Access, Choices, and Consequences </em></h2>
+
+		<section>
+      <h3>FOR the Proposition</h3>
+
+	  <div class='tableauPlaceholder' id='vizContainer1'>
+        <noscript>
+            <a href='#'>
+                <img alt='Tableau Visualization'
+                     src='https://public.tableau.com/static/images/A4/A4_17412804403810/Sheet83/1.png'
+                     style='border: none; width: 100%;' />
+            </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='A4_17412804403810/Sheet83' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/A4/A4_17412804403810/Sheet83/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+        </object>
+
+	</div>
+			<p>
+				Design Decisions and Rationale:
+
+				Upon EDA i notice that across the different states in the USA - the rate of abortion has changed between 2017 and 2018 and we can attribute this to the roe v wade debate which was just overturned in 2022. In the time before that many debates and access to abortion service as a policy was passed in some states
+				The effect of this policy is either the rise or fall of abortion rates in a given state given on the side which a given state favours. I establish in EDA that every state abortion activities were going on. But who needed abortion is the question and how where they getting it. I wanted my visualization to show that in the US women need abortion as shown by the activites across the country. Regardless of political afliation. But even suprising teenagers needs abortion care. The bigger bubbles in the visaulize show the which state had more teenagers requesting abrotion
+				In designing this visualization, I made several key decisions to ensure the data effectively communicates the disparities in abortion care access.
+				My goal was to create a compelling representation that highlights the impact of clinic closures and how it has increased the agency of teenagers to travel across state lines for care.
+
+			</p>
+
+			<ul>
+				<li>
+					<strong>Framing the Title as a Provocative Statement:</strong>
+					After establishing my findings, I deliberately framed the title <em>"Expand Local Access or Watch Your Teens Travel Across State Lines for Abortion Care"</em> as a call to action.
+					Instead of a neutral title, I aimed to highlight the real-world consequences of restricted abortion access**. This framing signals to the viewer that ignoring the issue has **direct and urgent implications**—forcing teenagers to seek care in unfamiliar states.
+				</li>
+
+				<li>
+					<strong>Using Dual Encoding (Color & Size) to Represent Multiple Variables:</strong>
+					To convey multiple dimensions of the data, I used both color and circle size  :
+					- Color coding:
+					  - Red: States with minimal abortion clinics, where residents—particularly teenagers—are forced to seek care elsewhere.
+					  - Blue: States with sufficient abortion clinics, where fewer women need to travel for care.
+					- Circle size: Represents the number of teenagers (19 and below) seeking abortion care. Larger circles indicate higher numbers.
+				</li>
+
+				<li>
+					<strong>Choosing a Greyscale Basemap to Reduce Distraction:</strong>
+					I wanted the size of the circles to remain the focal point, so I used a desaturated (greyscale) background map in Tableau. This design choice ensures that the colored circles stand out, effectively communicating the proportion of teenagers traveling out of state for care.
+					- Rationale:
+					  - Reduces visual noise and enhances contrast, making the data clearer.
+					  - Directs attention to state-level disparities rather than unnecessary map details.
+					- The map also reinforces that this issue is widespread across the country, rather than isolated to specific regions.
+				</li>
+
+				<li>
+					<strong>Using a Diverging Color Scheme to Emphasize Impact:</strong>
+					I applied a red and blue color scheme to show divergence in access.
+					- Blue: Represents states with better abortion access, where care is readily available.
+					- Red: Represents states with restricted access, emphasizing the challenges and consequences for those seeking care.
+					- This contrast visually reinforces the good vs. bad dynamic, making it easier for viewers to interpret the impact of policy differences.
+				</li>
+			</ul>
+
+
+    </section>
+
+    <section>
+      <h3>AGAINST the Proposition</h3>
+
+	  <div class='tableauPlaceholder' id='vizContainer2' style='position: relative; width: 100%; max-width: 1600px; height: 600px;'>
+		  <noscript>
+			  <a href='#'>
+				  <img alt='Tableau Visualization'
+					   src='https://public.tableau.com/static/images/A4/A4_17412804403810/Sheet62/1.png'
+					   style='border: none; width: 100%;' />/>
+			  </a>
+		  </noscript>
+		  <object class='tableauViz' style='display:none;'>
+			  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+			  <param name='embed_code_version' value='3' />
+			  <param name='site_root' value='' />
+			  <param name='name' value='A4_17412804403810/Sheet62' />
+			  <param name='tabs' value='no' />
+			  <param name='toolbar' value='yes' />
+			  <param name='static_image' value='https://public.tableau.com/static/images/A4/A4_17412804403810/Sheet62/1.png' />
+			  <param name='animate_transition' value='yes' />
+			  <param name='display_static_image' value='yes' />
+			  <param name='display_spinner' value='yes' />
+			  <param name='display_overlay' value='yes' />
+			  <param name='display_count' value='yes' />
+			  <param name='language' value='en-US' />
+			  <param name='filter' value='publish=yes' />
+		  </object>
+	  </div>
+
+	  <script type='text/javascript'>
+		function loadTableauViz(containerId) {
+			var divElement = document.getElementById(containerId);
+			var vizElement = divElement.getElementsByTagName('object')[0];
+
+			vizElement.style.width = '100%';
+			vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+
+			var scriptElement = document.createElement('script');
+			scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+			vizElement.parentNode.insertBefore(scriptElement, vizElement);
+		}
+
+		// Load both visualizations
+		loadTableauViz('vizContainer1');
+		loadTableauViz('vizContainer2');
+	</script>
+
+			<p>
+				<strong>Design Decisions and Rationale:</strong><br>
+				This visualization combines a dual-axis chart to represent two different yet related variables:
+			<ul>
+				<li><strong>Bar Chart (Left Y-Axis):</strong> Number of abortions among women aged <strong>15-19</strong> by state (2017).
+				</li>
+				<li><strong>Line Chart (Right Y-Axis):</strong> Percentage change in abortion rates from 2017 to 2020.
+				</li>
+			</ul>
+		</p>
+
+			<p>
+				My goal is to show that abortion rates are rising and the teenage demographic interacting with abortion care is increasing along with overall abortion rates.
+			</p>
+
+			<ul>
+				<li>
+					<strong>Dual-Axis Encoding for Comparative Analysis:</strong><br>
+						- The bars represent the absolute number of teenage abortions in different states, demonstrating that numbers reach into the thousands, indicating a significant demographic interaction.<br>
+						- The line chart overlays the percentage change in abortion rates over time, illustrating rising trends.
+						- Further investigation suggests that **government funding covers abortion services in 30% of U.S. states**, possibly influencing the observed increase.<br>
+						- To effectively present this, I utilized strategic **visual encoding techniques** to highlight key patterns.
+				</li>
+
+				<li>
+					<strong>Color and Contrast for Readability:</strong><br>
+						- Light brown bars provide contextual background without overwhelming the **dark brown line**, which emphasizes the rate of change in abortion trends.<br>
+						- The **yellow highlight** on New Hampshire draws attention to a key takeaway or user interaction.
+				</li>
+
+				<li>
+					<strong>Greyscale Basemap for Clarity:</strong><br>
+						- The visualization uses a minimalist, greyscale background** to eliminate distractions and keep focus on the data.<br>
+						- This enhances accessibility and ensures viewers can easily interpret the patterns rather than being overwhelmed by unnecessary map details.
+				</li>
+			</ul>
+
+			<p>
+				By combining dual-axis encoding, intentional color choices, and a minimalist design, this visualization effectively presents a **data-driven perspective on abortion trends among teenagers** in the U.S.
+			</p>
+
+    </section>
+
+    <section>
+		<h2>Final Reflection</h2>
+
+		<p>As a woman, I felt a natural pull toward the abortion dataset. I've always grappled with the moral complexities surrounding abortion—an issue layered with nuance. In exploring this data, I chose not to manipulate or augment it, as I wanted to observe women's behaviors as they relate to abortion care.</p>
+
+		<p>In modern society, young women are often encouraged to embrace their sexuality, to own their bodies and pleasures—ideally without repercussions. But this dataset tells a different story. It reveals that increasingly younger women, particularly those aged 15 to 19, are seeking abortion care, sometimes to the extent of <strong>traveling out of state</strong> to access it. Imagine that: crossing state lines, entering an unfamiliar clinic, meeting a doctor they have never seen before, and hoping they will be cared for—all because abortion care is unavailable where they live. That, to me, is deeply provocative.</p>
+
+		<p>Even more unsettling is the reality that these young women are terminating pregnancies—ending potential lives. When abortion rates decline in a given city, the data often shows that there was already an established demand for these services. Restrictions don’t eliminate the need; they shift where and how care is accessed.</p>
+
+		<p>One of my primary storytelling choices was to frame my findings with <strong>thought-provoking titles</strong>, positioning them as claims. For viewers who already hold strong beliefs, these claims may serve to reinforce their stance. But for others, they may <em>challenge perspectives</em> and invite deeper engagement with the data. My goal was not just to present numbers but to provoke thought, spark dialogue, and encourage reflection on the lived realities behind these statistics.</p>
+
+    </section>
+	</main>
+</body>
+</html>
