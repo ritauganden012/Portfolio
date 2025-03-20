@@ -47,9 +47,8 @@ for (let p of pages) {
     }
 
     // Open external links in new tab
-    if (!url.startsWith("/") && !url.startsWith("index.html")) {
-        a.target = "_blank";
-    }
+    if (a.host !== location.host){a.target = "_blank"}
+
 
     li.appendChild(a);
     ul.appendChild(li);
