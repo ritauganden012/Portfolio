@@ -1,52 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
-    <title> Contacts </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Rita Uganden-Teryila</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/global.js"></script>
 </head>
-
 <body>
-    <!-- Navigation Menu -->
-    <!-- <header>
-      <nav aria-label="Main navigation">
-          <ul class="nav-links">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="../projects/index.html">Projects</a></li> <!-- Link to the projects page
-              <li><a href="index.html"class="">Contact</a></li> <!-- Link to the current page -->
-              <!-- <li><a href="../Resume/index.html">Resume</a></li>
-              <li><a href="https://github.com/ritauganden012" target="_blank">GitHub</a></li> Link to GitHub profile with target="_blank"
+<main class="page">
 
-          </ul>
-      </nav>
-    </header>  -->
+  <section class="page-head">
+    <h1>Contact</h1>
+    <p>Open to roles and projects in Product Operations, Energy &amp; Data and Media Production. Write to me at <a href="mailto:rita.uganden@outlook.com">rita.uganden@outlook.com</a>, or use the form below.</p>
+  </section>
 
-<h1> Contact me! </h1>
+  <form action="mailto:rita.uganden@outlook.com" method="GET" class="contact-form">
+    <fieldset>
+      <legend>Contact form</legend>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+      <label for="body">Message</label>
+      <textarea id="body" name="body" rows="6" required></textarea>
+      <button class="button" type="submit">Open in my email app</button>
+    </fieldset>
+  </form>
 
-<!-- Contact Form -->
-<form action="mailto:rita27@mit.edu.com" method="GET" class = "contact-form">
-  <fieldset>
-    <legend>Contact Form</legend>
-
-    <!-- Email field -->
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <!-- Subject field -->
-    <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" required>
-
-    <!-- Message field -->
-    <label for="body">Message:</label>
-    <textarea id="body" name="body" rows="5" required></textarea>
-
-    <!-- Submit Button -->
-    <button class="button">Submit</button>
-  </fieldset>
-</form>
-
+  <div style="height: 72px;"></div>
+</main>
 </body>
-
 </html>

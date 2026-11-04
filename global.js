@@ -1,132 +1,67 @@
-/// STEP 1: Confirm script is running
-console.log("IT’S ALIVE!");
+// Shared header and footer for every page on ritauganden.com
+const EMAIL = "rita.uganden@outlook.com";
+const LINKEDIN = ""; // add the LinkedIn profile URL here to show LinkedIn links
 
-// Utility function to select multiple elements
-function $$(selector, context = document) {
-    return Array.from(context.querySelectorAll(selector));
-}
-
-// STEP 3.1: Define navigation links
 const pages = [
-    { url: "", title: "Home" },
-    { url: "Projects/", title: "Projects" },
-    { url: "Contact/", title: "Contact" },
-    { url: "Resume/", title: "Resume" },
-    { url: "https://github.com/ritauganden012", title: "GitHub" }
+  { url: "/Projects/", title: "Work" },
+  { url: "/Resume/", title: "Résumé" },
+  { url: "/Contact/", title: "Contact" },
 ];
 
-// STEP 3.2: Detect if we are on the home page
-const ARE_WE_HOME = document.documentElement.classList.contains("home");
+// Header
+const header = document.createElement("header");
+header.className = "site-header";
 
-// Create the `<nav>` element
-let nav = document.createElement("nav");
-nav.setAttribute("aria-label", "Main navigation");
+const home = document.createElement("a");
+home.href = "/";
+home.className = "home-link";
+home.textContent = "Rita Uganden-Teryila";
+header.appendChild(home);
 
-// Create the `<ul>` element for the links
-let ul = document.createElement("ul");
-ul.classList.add("nav-links");
-
-// Loop through `pages` and generate list items `<li>`
-for (let p of pages) {
-    let url = p.url;
-    let title = p.title;
-
-    // Correct relative URL handling for subpages
-    if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = `/${url}`; // Ensure correct relative path
-    }
-
-    let li = document.createElement("li");
-    let a = document.createElement("a");
-    a.href = url;
-    a.textContent = title;
-
-    // Highlight active page
-    if (a.host === location.host && a.pathname === location.pathname) {
-        a.classList.add("current");
-    }
-
-    // Open external links in new tab
-    if (a.host !== location.host){a.target = "_blank"}
-
-
-    li.appendChild(a);
-    ul.appendChild(li);
+const nav = document.createElement("nav");
+nav.setAttribute("aria-label", "Main");
+const ul = document.createElement("ul");
+ul.className = "nav-links";
+for (const p of pages) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = p.url;
+  a.textContent = p.title;
+  if (location.pathname.toLowerCase().startsWith(p.url.toLowerCase())) {
+    a.classList.add("current");
+    a.setAttribute("aria-current", "page");
+  }
+  li.appendChild(a);
+  ul.appendChild(li);
 }
-
-// Append `<ul>` to `<nav>`
 nav.appendChild(ul);
-
-// STEP 3.3: Select or create `<header>` and append `<nav>`
-let header = document.querySelector("header");
-
-if (!header) {
-    header = document.createElement("header");
-    document.body.prepend(header); // Insert `<header>` at the top of `<body>`
-}
-
 header.appendChild(nav);
+document.body.prepend(header);
 
-//
-// Add Theme Switcher Dropdown
-document.body.insertAdjacentHTML("afterbegin", `
-    <label class="color-scheme">
-        Theme:
-        <select id="theme-selector">
-            <option value="auto">Auto (System Default)</option>
-            <option value="dark">Dark Mode</option>
-            <option value="light">Light Mode</option>
-        </select>
-    </label>
-`);
+// Footer
+const footer = document.createElement("footer");
+footer.className = "site-footer";
+const year = new Date().getFullYear();
+const links = [`<a href="mailto:${EMAIL}">Email</a>`];
+if (LINKEDIN) links.push(`<a href="${LINKEDIN}" target="_blank" rel="noopener noreferrer">LinkedIn</a>`);
+links.push(`<a href="https://github.com/ritauganden012" target="_blank" rel="noopener noreferrer">GitHub</a>`);
+footer.innerHTML = `<span>© ${year} Rita Uganden-Teryila</span><span>${links.join(' <span class="sep" aria-hidden="true">·</span> ')}</span>`;
+document.body.appendChild(footer);
 
-const themeSelect = document.querySelector("#theme-selector");
-
-// Function to update theme
-function updateTheme(theme) {
-    document.body.classList.remove("light-mode", "dark-mode");
-
-    if (theme === "dark") {
-        document.body.classList.add("dark-mode");
-    } else if (theme === "light") {
-        document.body.classList.add("light-mode");
-    } else {
-        // Auto mode (system preference)
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.add("light-mode");
-        }
-    }
-
-    // Save theme to localStorage
-    localStorage.setItem("theme", theme);
-}
-
-// Change theme on dropdown selection
-themeSelect.addEventListener("change", function (event) {
-    updateTheme(event.target.value);
+// LinkedIn links on the page stay hidden until a URL is set above
+document.querySelectorAll("[data-linkedin]").forEach((wrap) => {
+  if (!LINKEDIN) return;
+  const a = wrap.querySelector("a");
+  if (a) a.href = LINKEDIN;
+  wrap.hidden = false;
 });
 
-// Load saved theme or use system preference
-const savedTheme = localStorage.getItem("theme") || "auto";
-themeSelect.value = savedTheme;
-updateTheme(savedTheme);
-
-// Listen for system preference changes (Auto Mode)
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if (localStorage.getItem("theme") === "auto") {
-        updateTheme("auto");
-    }
+// Carousel arrows
+document.querySelectorAll("[data-carousel]").forEach((wrap) => {
+  const track = wrap.querySelector(".track");
+  wrap.querySelectorAll("[data-dir]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      track.scrollBy({ left: Number(btn.dataset.dir) * 300, behavior: "smooth" });
+    });
+  });
 });
-///////Assignment4  Tableau Integration ///////
-var divElement = document.getElementById('vizContainer');
-var vizElement = divElement.getElementsByTagName('object')[0];
-vizElement.style.width = '100%';
-vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-
-var scriptElement = document.createElement('script');
-scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-vizElement.parentNode.insertBefore(scriptElement, vizElement);
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
